@@ -145,20 +145,17 @@ médiasFinais = new Array(4);
   for (ind = 0; ind < alunos; ind++) 
   {
     document.write("<tr><td class='nAluno'>" + (ind + 1) + "</td><td class='nAluno'>" + médiasFinais[ind] + "</td><td>");
-    
-    {
+   
       if (médiasFinais[ind] >= 6) 
     {
       document.write("<img src='positivo.png'> </td>" )
     }
-
   
     else 
     {
       document.write("<img src='negativo.png'> </td>" )
     }
-    
-  }
+   
 
     if (médiasFinais[ind] < 6) 
     {
