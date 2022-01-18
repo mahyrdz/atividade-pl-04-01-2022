@@ -1,0 +1,185 @@
+<html>
+
+<head>
+ <title>mediaAlunos</title>
+<style> 
+
+table
+{
+  border-color: black;
+  border-width: 1px;
+  border-style: solid;
+  width: 1116px;
+}
+
+td
+{
+  border-style: solid;
+  border-color: black;
+  border-width: 1px;
+  font-size: 20px;
+  text-align: center;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+.umEsq
+{
+  border-style: solid;
+  border-color: black;
+  border-width: 1px;
+  width: 196px;
+}
+
+.umDir
+{
+  border-style: solid;
+  border-color: black;
+  border-width: 1px;
+  width: 450px;
+  height: 18px;
+}
+
+.empty
+{
+  border-style: solid;
+  border-color: white;
+  border-width: 1px;
+  height: 18px;
+  width: 196px;
+}
+
+.indVis
+{
+  border-style: solid;
+  border-color: black;
+  border-width: 1px;
+  width: 266px;
+  height: 18px;
+}
+
+.pontAprov
+{
+  border-style: solid;
+  border-color: black;
+  border-width: 1px;
+  width: 225px;
+  height: 18px;
+}
+
+.indicativo
+{
+  border-style: solid;
+  border-color: black;
+  border-width: 1px;
+  width: 266px;
+}
+
+.nAluno
+{
+  border-style: solid;
+  border-color: black;
+  border-width: 1px;
+  width: 196px;
+  height: 58px;
+}
+
+.pontos
+{
+  border-style: solid;
+  border-color: black;
+  border-width: 1px;
+  width: 225px;
+  height: 58px;
+}
+
+img
+{
+  height: 58px;
+  width: 60px;
+}
+
+
+
+</style>
+</head>
+
+<body>
+<center>
+<script language="javascript">
+
+var médiasFinais, somaMédias, médiaGlob, aprovados, percAprov, alunos, reprovados;
+
+somaMédias = 0;
+aprovados = 0;
+alunos = 40;
+
+médiasFinais = new Array(4);
+
+  for (var ind = 0; ind < alunos; ind++) 
+  {
+    médiasFinais[ind] = parseFloat(window.prompt("Digite as médias finais dos 40 alunos da CTII 148 em PL1: "));
+  }
+
+  for (ind = 0; ind < alunos; ind++) 
+  {
+    somaMédias += médiasFinais[ind];
+    médiaGlob = somaMédias / alunos;
+
+    if (médiasFinais[ind] >= 6) 
+    {
+      aprovados++;
+    }
+
+  }
+
+  percAprov = aprovados * 100 / alunos;
+
+  document.write("<table>");
+  document.write("<tr><td colspan='3' class='umEsq'>Média global da turma:</td> <td class='umDir'>" + médiaGlob +"</td></tr>");
+  document.write("<tr><td colspan='3' class='umEsq'>Quantidade de alunos acima da média:</td> <td class='umDir'>" + aprovados + "</td></tr>");
+  document.write("<tr><td colspan='3' class='umEsq'>Percentual de aprovados (média >= 6,0):</td> <td class='umDir'>" + percAprov + "% </td></tr>");
+  document.write("<tr><td class='empty'></td></tr>");
+  document.write("<tr><td class='umEsq'>Nº do Aluno</td><td class='umEsq'>Média Final</td>");
+  document.write("<td class='indVis'>Indicativo Visual</td><td class='pontAprov'>Pontos para atingir a aprovação</td></tr>");
+
+  for (ind = 0; ind < alunos; ind++) 
+  {
+    document.write("<tr><td class='nAluno'>" + (ind + 1) + "</td><td class='nAluno'>" + médiasFinais[ind] + "</td><td>");
+    
+    {
+      if (médiasFinais[ind] >= 6) 
+    {
+      document.write("<img src='positivo.png'> </td>" )
+    }
+
+  
+    else 
+    {
+      document.write("<img src='negativo.png'> </td>" )
+    }
+    
+  }
+
+    if (médiasFinais[ind] < 6) 
+    {
+      reprovados = 6 - médiasFinais[ind];
+      document.write("<td class='pontos'>" + reprovados + "</td>");
+    }
+
+    else
+    {
+      document.write("<td class='pontos'> --- </td>");
+    }
+    
+    document.write("</tr>");
+  }
+
+  document.write("</table>");
+
+
+
+</script>
+  </form>
+</center>
+</body>
+</html>
